@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SigmaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SigmaModelStoreContainer">
+    <EntitySet Name="CountryBoundary" EntityType="SigmaModel.Store.CountryBoundary" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CountryProfile" EntityType="SigmaModel.Store.CountryProfile" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DemandForcast" EntityType="SigmaModel.Store.DemandForcast" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Demograhic" EntityType="SigmaModel.Store.Demograhic" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GeoName" EntityType="SigmaModel.Store.GeoName" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ImunizationLocation" EntityType="SigmaModel.Store.ImunizationLocation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Schedule" EntityType="SigmaModel.Store.Schedule" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CountryProfile_GeoName" Association="SigmaModel.Store.FK_CountryProfile_GeoName">
+      <End Role="GeoName" EntitySet="GeoName" />
+      <End Role="CountryProfile" EntitySet="CountryProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DemandForcastAnalysis_GeoName" Association="SigmaModel.Store.FK_DemandForcastAnalysis_GeoName">
+      <End Role="GeoName" EntitySet="GeoName" />
+      <End Role="DemandForcast" EntitySet="DemandForcast" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Demograhic_GeoName" Association="SigmaModel.Store.FK_Demograhic_GeoName">
+      <End Role="GeoName" EntitySet="GeoName" />
+      <End Role="Demograhic" EntitySet="Demograhic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schedule_GeoName" Association="SigmaModel.Store.FK_Schedule_GeoName">
+      <End Role="GeoName" EntitySet="GeoName" />
+      <End Role="Schedule" EntitySet="Schedule" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CountryBoundary">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FIPS" Type="nvarchar" MaxLength="255" />
+    <Property Name="ISO2" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsoAlpha3" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsoNumeric" Type="int" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="255" />
+    <Property Name="LON" Type="float" />
+    <Property Name="LAT" Type="float" />
+    <Property Name="Shape" Type="geometry" />
+  </EntityType>
+  <EntityType Name="CountryProfile">
+    <Key>
+      <PropertyRef Name="GeoNameId" />
+    </Key>
+    <Property Name="CountryCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsoNumeric" Type="int" />
+    <Property Name="IsoAlpha3" Type="nvarchar" MaxLength="10" />
+    <Property Name="FipsCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Continent" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContinentName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Capital" Type="nvarchar" MaxLength="255" />
+    <Property Name="AreaInSqKm" Type="int" />
+    <Property Name="Population" Type="int" />
+    <Property Name="CurrencyCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Languages" Type="nvarchar" MaxLength="255" />
+    <Property Name="GeoNameId" Type="int" Nullable="false" />
+    <Property Name="West" Type="float" />
+    <Property Name="North" Type="float" />
+    <Property Name="East" Type="float" />
+    <Property Name="South" Type="float" />
+    <Property Name="MapServiceURL" Type="varchar(max)" />
+    <Property Name="Geom" Type="geometry" />
+  </EntityType>
+  <EntityType Name="DemandForcast">
+    <Key>
+      <PropertyRef Name="DemandForcastAnalysisId" />
+    </Key>
+    <Property Name="DemandForcastAnalysisId" Type="int" Nullable="false" />
+    <Property Name="GeoNameId" Type="int" />
+    <Property Name="Radius" Type="int" />
+    <Property Name="TotalPopulation" Type="int" />
+    <Property Name="PopulationCoveredInCatachment" Type="int" />
+    <Property Name="PopulationOutsideOfCatachment" Type="int" />
+  </EntityType>
+  <EntityType Name="Demograhic">
+    <Key>
+      <PropertyRef Name="DemographicId" />
+    </Key>
+    <Property Name="DemographicId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="TotalPopulation" Type="int" />
+    <Property Name="Births" Type="int" />
+    <Property Name="Infant" Type="int" />
+    <Property Name="Under5" Type="int" />
+    <Property Name="SchoolAge" Type="int" />
+    <Property Name="Female" Type="int" />
+    <Property Name="Birthing" Type="int" />
+    <Property Name="Pregnant" Type="int" />
+    <Property Name="GeoNamesId" Type="int" />
+  </EntityType>
+  <EntityType Name="GeoName">
+    <Key>
+      <PropertyRef Name="GeoNameId" />
+    </Key>
+    <Property Name="GeoNameId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="AsciiName" Type="varchar(max)" />
+    <Property Name="AlternateNames" Type="varchar(max)" />
+    <Property Name="Latitude" Type="float" />
+    <Property Name="Longitude" Type="float" />
+    <Property Name="FeatureClass" Type="varchar" MaxLength="10" />
+    <Property Name="FeatureCode" Type="varchar" MaxLength="20" />
+    <Property Name="CountryCode" Type="varchar" MaxLength="10" />
+    <Property Name="CC2" Type="varchar" MaxLength="60" />
+    <Property Name="Admin1Code" Type="varchar" MaxLength="20" />
+    <Property Name="Admin2Code" Type="varchar" MaxLength="80" />
+    <Property Name="Admin3Code" Type="varchar" MaxLength="20" />
+    <Property Name="Admin4Code" Type="varchar" MaxLength="20" />
+    <Property Name="Popuation" Type="int" />
+    <Property Name="Elevation" Type="int" />
+    <Property Name="Gtopo30" Type="int" />
+    <Property Name="Timezone" Type="varchar" MaxLength="50" />
+    <Property Name="ModificationDate" Type="datetime" />
+    <Property Name="Geom" Type="geometry" />
+  </EntityType>
+  <EntityType Name="ImunizationLocation">
+    <Key>
+      <PropertyRef Name="ImunizationLocationId" />
+    </Key>
+    <Property Name="ImunizationLocationId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="Latitude" Type="float" />
+    <Property Name="Longitude" Type="float" />
+    <Property Name="RefrigSpace" Type="varchar" MaxLength="50" />
+    <Property Name="FreezerSpace" Type="varchar" MaxLength="50" />
+    <Property Name="ColdStoragSpec" Type="varchar" MaxLength="50" />
+    <Property Name="CatchmentId" Type="int" Nullable="false" />
+    <Property Name="GeoNameId" Type="int" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleId" />
+    </Key>
+    <Property Name="ScheduleId" Type="int" Nullable="false" />
+    <Property Name="VaccineName" Type="varchar(max)" />
+    <Property Name="Abbreviation" Type="varchar" MaxLength="50" />
+    <Property Name="VaccinePresentation" Type="varchar" MaxLength="50" />
+    <Property Name="AdministrationMethod" Type="varchar" MaxLength="50" />
+    <Property Name="DosagePerVial" Type="int" />
+    <Property Name="Presentation" Type="varchar" MaxLength="255" />
+    <Property Name="DosageTotal" Type="int" />
+    <Property Name="Dosage1Age" Type="varchar" MaxLength="50" />
+    <Property Name="Dosage2Age" Type="varchar" MaxLength="50" />
+    <Property Name="Dosage3Age" Type="varchar" MaxLength="50" />
+    <Property Name="Dosage4Age" Type="varchar" MaxLength="50" />
+    <Property Name="Dosage5Age" Type="varchar" MaxLength="50" />
+    <Property Name="GeoNamesId" Type="int" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_CountryProfile_GeoName">
+    <End Role="GeoName" Type="SigmaModel.Store.GeoName" Multiplicity="1" />
+    <End Role="CountryProfile" Type="SigmaModel.Store.CountryProfile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="GeoName">
+        <PropertyRef Name="GeoNameId" />
+      </Principal>
+      <Dependent Role="CountryProfile">
+        <PropertyRef Name="GeoNameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DemandForcastAnalysis_GeoName">
+    <End Role="GeoName" Type="SigmaModel.Store.GeoName" Multiplicity="0..1" />
+    <End Role="DemandForcast" Type="SigmaModel.Store.DemandForcast" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GeoName">
+        <PropertyRef Name="GeoNameId" />
+      </Principal>
+      <Dependent Role="DemandForcast">
+        <PropertyRef Name="GeoNameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Demograhic_GeoName">
+    <End Role="GeoName" Type="SigmaModel.Store.GeoName" Multiplicity="0..1" />
+    <End Role="Demograhic" Type="SigmaModel.Store.Demograhic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GeoName">
+        <PropertyRef Name="GeoNameId" />
+      </Principal>
+      <Dependent Role="Demograhic">
+        <PropertyRef Name="GeoNamesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schedule_GeoName">
+    <End Role="GeoName" Type="SigmaModel.Store.GeoName" Multiplicity="0..1" />
+    <End Role="Schedule" Type="SigmaModel.Store.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GeoName">
+        <PropertyRef Name="GeoNameId" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="GeoNamesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

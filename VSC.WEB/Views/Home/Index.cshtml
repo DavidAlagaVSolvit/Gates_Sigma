@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Welcome";
+}
+
+<div class="page padding10">
+    <div class="row">
+        <h2 class="padding10  text-justify  bg-color-vsolvit-orange  fg-color-white "><span>@ViewBag.Title  <i class="icon-home place-right" style="font-size: x-large"></i></span></h2>
+    </div>
+    <p class="padding10 text-justify ">
+        <h3>
+        Welcome to the <strong>Strategic Immunization Geotemporal Mapping Application (SIGMA)  </strong>, an innovative combination of geographical information systems (GIS) technology and various economic and operational modeling analytics to help decision makers. 
+    </h3>
+     </p>
+    <ol class="row  unstyled"   style="font-size:larger;" >
+
+        <li class=" as-inline-block  padding10 span9" >
+                
+            <div class=" span3 place-left">
+                SIGMA can be used by:
+          
+            <ul>
+                <li>Ministries of Health (MOH)</li>
+                <li>Policy makers</li>
+                <li>Funders</li>
+                <li>Vaccine manufacturers and distributors</li>
+                <li>And other vaccine decision-makers</li>
+            </ul>
+            </div>
+            <div class="  span4  place-right">
+                To help:
+            <ul>
+                <li>Better forecast vaccine demand</li>
+                <li>Plan, operate, and improve routine immunization systems</li>
+                <li>Design, plan, operate, and improve outreach programs</li>
+                <li>Design, plan, operate, and improve immunization campaigns.</li>
+            </ul>
+            </div>
+
+        </li>
+        <li class=" as-inline-block  padding10   ">
+            <img src="~/Images/Sigma%20GridFinal25.png" />
+        </li>
+
+
+    </ol>
+    <p class="padding10 text-justify">
+        <h4>
+        SIGMA is being developed jointly by <a href="www/vsolvit.com" target="_blank">VSolvit </a>and <a href="hermes.psc.edu" target="_blank">HERMES/Logistics Modeling Team</a> at the University of Pittsburgh and Pittsburgh Supercomputing Center (PSC)   Feel free to explore this website and use the application to learn more.
+    </h4>
+            </p>
+
+    @if (Request.IsAuthenticated)
+    {
+        <div class="row span10">
+            <a href=@Url.Action("Index", "Application") class="navigation-text"  style="font-size:x-large;">
+                Click here to get started
+            </a>
+        </div>
+    }
+    else
+    {
+        
+        <div class="row span10">
+            <a href=@Url.Action("Login", "Account") class="navigation-text" style="font-size:x-large;">
+               Please login or register to begin
+            </a>
+        </div>
+ 
+    }
+    <ol class="row  unstyled">
+        <li class=" as-inline-block  padding10  ">
+            <a class="fg-color-white" target="_blank" href="http://www.vsolvit.com/">
+                <img src="~/Images/logo_large.png" class="span4" /></a>
+        </li>
+        <li class="  as-inline-block   padding10  ">
+            <a class="fg-color-white" target="_blank" href="http://psc.edu/">
+                <img src="~/Images/PittSuperLogo.png" />
+            </a>
+
+            <a class="fg-color-white" target="_blank" href="http://hermes.psc.edu/">
+                <img src="~/Images/hermes%20logo_small.png" />
+            </a>
+            <a class="fg-color-white" target="_blank" href="http://pitt.edu/">
+                <img src="~/Images/UPittlogo.gif" />
+            </a>
+        </li>
+
+    </ol>
+
+</div>
+

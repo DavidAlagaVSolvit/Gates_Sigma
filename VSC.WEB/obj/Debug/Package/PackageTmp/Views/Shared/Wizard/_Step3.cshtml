@@ -1,0 +1,30 @@
+﻿<div  id="uiWizardStep2" c class="wizard-step  padding10">
+    <h4>Step 3: Review, Add, or Modify Fixed Immunization Locations</h4>
+                <p class="    text-justify">
+                On this page the user can add Fixed Immunization Locations data by choosing a file to upload to the map. Use the “Choosing File” button to upload a CSV file from your computer or drag and drop onto the map. Follow the directions hyperlink to review step by step instructions and use the template hyperlink to fill in our easy to use template. Once a user has uploaded a point, the data can be updated with the Start Editing button. This includes selecting, adding, deleting, and moving points. Right click on the map to begin.
+
+                Click here for <a target="_blank" href="~/FileDownloadHandler.ashx?file=Howtouploaddata.docx">directions </a>and a <a target="_blank" href="~/FileDownloadHandler.ashx?file=CSVUploadTemplate.csv">template  </a>.
+            </p>
+    <ol class="unstyled">
+          @*   <li class="  as-inline-block ">
+       <h5>Add New Fixed Immunization Locations</h5
+        </li>>*@
+        <li class=" as-inline-block padding10">
+            <h5>Add New Fixed Immunization Locations</h5
+            <form id="uploadForm" class=" padding5" method="POST" enctype="multipart/form-data">
+                <input type="file" name="data" id="inFile" />
+            </form>
+        </li>
+        <li class="  as-inline-block  padding10">
+            <h5>Modify Existing Fixed Immunization Locations</h5>
+            <ol class="unstyled">
+                <li class=" as-inline-block ">
+                    <button type="button" class="default ui-editor-start"><i class=""></i>Start Editing</button>
+                </li>
+                <li class=" as-inline-block ">
+                    <button type="button" class="default ui-editor-stop no-display"><i class=""></i>Stop Editing</button>
+                </li>
+            </ol>
+        </li>
+    </ol>
+</div>

@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Help";
+}
+<div class="page padding10">
+    <div class="row">
+        <h2 class="padding10  text-justify  bg-color-vsolvit-orange  fg-color-white"><span>@ViewBag.Title  <i class="icon-mail place-right" style="font-size: x-large"></i></span></h2>
+        <h3>Overview</h3>
+        <p class="text-justify">
+            SIGMA can help users generate reports on where existing immunization strategies are successful, and where current strategies are insufficient that can help plan and test potential solutions. The application will guide users through 6 steps. First, a user’s identify a country to review a country profile and vaccine schedule. Next, the user can review, add, or change Fixed Immunization Locations to the map. In step 4 and 5, users define characteristics and reach of Fixed Immunization Location's catchment area to review population served and currently not served. Lastly, step 6 enables users to add New Outreach Locations to the map. Choose a country to get started. 
+            Let’s Begin
+        </p>
+        <ul class="accordion" data-role="accordion">
+            <li class="active">
+                <a href="#">Step 1: Identify a Country</a>
+                <div>
+                    Users have three ways to select a country of interest:
+                    <ol>
+                        <li>Type the name of a country into our search box</li>
+                        <li>Select a country from the drop down list</li>
+                        <li>heck the selection box to click on a country directly on the map</li>
+                    </ol>
+                </div>
+            </li>
+            <li>
+                <a href="#">Step 2: Review Country Profile and Specify a Vaccine Schedule  </a>
+                <div>
+                    When users select a country that has fixed immunization locations already included in SIGMA’s database there will be able to view that country’s country profile and vaccine schedule. For example, SIGMA presently includes a database for Niger. The country profile displays demographic information and immunization demand through scheduled need for vaccines. When users select a country without data uploaded into the SIGMA database they will receive a notification. 
+                </div>
+            </li>
+
+            <li>
+                <a href="#">Step 3: Review/Add/Change Fixed Immunization Locations to the Map</a>
+                <div>
+                    User can add Fixed Immunization Locations data for the country by choosing a file to upload to the map. Use the “Choosing File” button to upload a CSV file from your computer or drag and drop onto the map. Follow the directions hyperlink to review step by step instructions. Use the template hyperlink to fill in our easy to use template. Once a user has uploaded a point they can update the data with the Start Editing buttons. This includes selecting, adding, deleting, and moving points
+                </div>
+            </li>
+
+            <li>
+                <a href="#">Step 4:  Define Characteristics and Reach of Fixed Immunization Locations</a>
+                <div>
+                    User can run a vaccine demand analysis for the country and view the vaccine demand by each of the individual administrative districts. To perform a vaccine demand analysis users select a catchment radius which is the distance reachable by fixed immunization locations (e.g. 1,5,10 km). The user also select the coverage percentage (e.g. 100%, 75%, 50%, 25%), allows the user to specify assumptions of how many people are vaccinated in each catchment area. The user can vary the catchment size and coverage for each administrative area. The application will output the total amount of people covered and uncovered by fixed immunization locations based on their characteristics. 
+                </div>
+            </li>
+
+
+            <li>
+                <a href="#">Step 5: Determine Population Served and Currently Not Served by Fixed Immunization Locations</a>
+                <div>
+                   The user can choose a region in the drop down menu to update the report table on all Fixed Immunization Locations. The user can change Catchment Area and Percentage Coverage to explore how it affect results. 
+
+                </div>
+            </li>
+
+            <li>
+                <a href="#">Step 6: Add New Outreach Locations to the Map</a>
+                <div>
+                    Once you have identified population that is reachable and unreachable by current fixed immunization locations the user can suggest new locations and characteristics for outreach and campaigns. Use our add location tool to suggest new locations on the map. 
+ 
+                </div>
+            </li>
+
+        </ul>
+
+ 
+
+    </div>
+</div>

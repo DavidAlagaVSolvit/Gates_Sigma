@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SigmaModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SigmaContext" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="CountryProfiles" EntityType="SigmaModel.CountryProfile" />
+    <EntitySet Name="Demograhics" EntityType="SigmaModel.Demograhic" />
+    <EntitySet Name="GeoNames" EntityType="SigmaModel.GeoName" />
+    <EntitySet Name="ImunizationLocations" EntityType="SigmaModel.ImunizationLocation" />
+    <EntitySet Name="Schedules" EntityType="SigmaModel.Schedule" />
+    <AssociationSet Name="FK_CountryProfile_GeoName" Association="SigmaModel.FK_CountryProfile_GeoName">
+      <End Role="GeoName" EntitySet="GeoNames" />
+      <End Role="CountryProfile" EntitySet="CountryProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Demograhic_GeoName" Association="SigmaModel.FK_Demograhic_GeoName">
+      <End Role="GeoName" EntitySet="GeoNames" />
+      <End Role="Demograhic" EntitySet="Demograhics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ImunizationLocation_GeoName" Association="SigmaModel.FK_ImunizationLocation_GeoName">
+      <End Role="GeoName" EntitySet="GeoNames" />
+      <End Role="ImunizationLocation" EntitySet="ImunizationLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schedule_GeoName" Association="SigmaModel.FK_Schedule_GeoName">
+      <End Role="GeoName" EntitySet="GeoNames" />
+      <End Role="Schedule" EntitySet="Schedules" />
+    </AssociationSet>
+    <EntitySet Name="DemandForcasts" EntityType="SigmaModel.DemandForcast" />
+    <AssociationSet Name="FK_DemandForcastAnalysis_GeoName" Association="SigmaModel.FK_DemandForcastAnalysis_GeoName">
+      <End Role="GeoName" EntitySet="GeoNames" />
+      <End Role="DemandForcast" EntitySet="DemandForcasts" />
+    </AssociationSet>
+    <EntitySet Name="CountryBoundaries" EntityType="SigmaModel.CountryBoundary" />
+  </EntityContainer>
+  <EntityType Name="CountryProfile">
+    <Key>
+      <PropertyRef Name="GeoNameId" />
+    </Key>
+    <Property Name="CountryCode" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="CountryName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="IsoNumeric" Type="Int32" />
+    <Property Name="IsoAlpha3" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="FipsCode" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="Continent" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ContinentName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Capital" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="AreaInSqKm" Type="Int32" />
+    <Property Name="Population" Type="Int32" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="Languages" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="GeoNameId" Type="Int32" Nullable="false" />
+    <Property Name="West" Type="Double" />
+    <Property Name="North" Type="Double" />
+    <Property Name="East" Type="Double" />
+    <Property Name="South" Type="Double" />
+    <Property Name="MapServiceURL" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="GeoName" Relationship="SigmaModel.FK_CountryProfile_GeoName" FromRole="CountryProfile" ToRole="GeoName" />
+    <Property Type="Geometry" Name="Geom" />
+  </EntityType>
+  <EntityType Name="Demograhic">
+    <Key>
+      <PropertyRef Name="DemographicId" />
+    </Key>
+    <Property Name="DemographicId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="TotalPopulation" Type="Int32" />
+    <Property Name="Births" Type="Int32" />
+    <Property Name="Infant" Type="Int32" />
+    <Property Name="Under5" Type="Int32" />
+    <Property Name="SchoolAge" Type="Int32" />
+    <Property Name="Female" Type="Int32" />
+    <Property Name="Birthing" Type="Int32" />
+    <Property Name="Pregnant" Type="Int32" />
+    <Property Name="GeoNamesId" Type="Int32" />
+    <NavigationProperty Name="GeoName" Relationship="SigmaModel.FK_Demograhic_GeoName" FromRole="Demograhic" ToRole="GeoName" />
+  </EntityType>
+  <EntityType Name="GeoName">
+    <Key>
+      <PropertyRef Name="GeoNameId" />
+    </Key>
+    <Property Name="GeoNameId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="AsciiName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="AlternateNames" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Latitude" Type="Double" />
+    <Property Name="Longitude" Type="Double" />
+    <Property Name="FeatureClass" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="FeatureCode" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="CountryCode" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="CC2" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+    <Property Name="Admin1Code" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Admin2Code" Type="String" MaxLength="80" Unicode="false" FixedLength="false" />
+    <Property Name="Admin3Code" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Admin4Code" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Popuation" Type="Int32" />
+    <Property Name="Elevation" Type="Int32" />
+    <Property Name="Gtopo30" Type="Int32" />
+    <Property Name="Timezone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CountryProfile" Relationship="SigmaModel.FK_CountryProfile_GeoName" FromRole="GeoName" ToRole="CountryProfile" />
+    <NavigationProperty Name="Demograhics" Relationship="SigmaModel.FK_Demograhic_GeoName" FromRole="GeoName" ToRole="Demograhic" />
+    <NavigationProperty Name="ImunizationLocations" Relationship="SigmaModel.FK_ImunizationLocation_GeoName" FromRole="GeoName" ToRole="ImunizationLocation" />
+    <NavigationProperty Name="Schedules" Relationship="SigmaModel.FK_Schedule_GeoName" FromRole="GeoName" ToRole="Schedule" />
+    <NavigationProperty Name="DemandForcasts" Relationship="SigmaModel.FK_DemandForcastAnalysis_GeoName" FromRole="GeoName" ToRole="DemandForcast" />
+    <Property Type="Geometry" Name="Geom" />
+  </EntityType>
+  <EntityType Name="ImunizationLocation">
+    <Key>
+      <PropertyRef Name="ImunizationLocationId" />
+    </Key>
+    <Property Name="ImunizationLocationId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Latitude" Type="Double" />
+    <Property Name="Longitude" Type="Double" />
+    <Property Name="RefrigSpace" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="FreezerSpace" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ColdStoragSpec" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CatchmentId" Type="Int32" Nullable="false" />
+    <Property Name="GeoNameId" Type="Int32" />
+    <NavigationProperty Name="GeoName" Relationship="SigmaModel.FK_ImunizationLocation_GeoName" FromRole="ImunizationLocation" ToRole="GeoName" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleId" />
+    </Key>
+    <Property Name="ScheduleId" Type="Int32" Nullable="false" />
+    <Property Name="VaccineName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Abbreviation" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="VaccinePresentation" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="AdministrationMethod" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Presentation" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="GeoNamesId" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="GeoName" Relationship="SigmaModel.FK_Schedule_GeoName" FromRole="Schedule" ToRole="GeoName" />
+    <Property Type="Int32" Name="DosagePerVial" />
+    <Property Type="Int32" Name="DosageTotal" />
+    <Property Type="String" Name="Dosage1Age" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Dosage2Age" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Dosage3Age" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Dosage4Age" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Dosage5Age" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_CountryProfile_GeoName">
+    <End Role="GeoName" Type="SigmaModel.GeoName" Multiplicity="1" />
+    <End Role="CountryProfile" Type="SigmaModel.CountryProfile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="GeoName">
+        <PropertyRef Name="GeoNameId" />
+      </Principal>
+      <Dependent Role="CountryProfile">
+        <PropertyRef Name="GeoNameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Demograhic_GeoName">
+    <End Role="GeoName" Type="SigmaModel.GeoName" Multiplicity="0..1" />
+    <End Role="Demograhic" Type="SigmaModel.Demograhic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GeoName">
+        <PropertyRef Name="GeoNameId" />
+      </Principal>
+      <Dependent Role="Demograhic">
+        <PropertyRef Name="GeoNamesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ImunizationLocation_GeoName">
+    <End Role="GeoName" Type="SigmaModel.GeoName" Multiplicity="0..1" />
+    <End Role="ImunizationLocation" Type="SigmaModel.ImunizationLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GeoName">
+        <PropertyRef Name="GeoNameId" />
+      </Principal>
+      <Dependent Role="ImunizationLocation">
+        <PropertyRef Name="GeoNameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schedule_GeoName">
+    <End Role="GeoName" Type="SigmaModel.GeoName" Multiplicity="0..1" />
+    <End Role="Schedule" Type="SigmaModel.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GeoName">
+        <PropertyRef Name="GeoNameId" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="GeoNamesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DemandForcast">
+    <Key>
+      <PropertyRef Name="DemandForcastAnalysisId" />
+    </Key>
+    <Property Type="Int32" Name="DemandForcastAnalysisId" Nullable="false" />
+    <Property Type="Int32" Name="GeoNameId" />
+    <Property Type="Int32" Name="Radius" />
+    <Property Type="Int32" Name="TotalPopulation" />
+    <Property Type="Int32" Name="PopulationCoveredInCatachment" />
+    <Property Type="Int32" Name="PopulationOutsideOfCatachment" />
+    <NavigationProperty Name="GeoName" Relationship="SigmaModel.FK_DemandForcastAnalysis_GeoName" FromRole="DemandForcast" ToRole="GeoName" />
+  </EntityType>
+  <Association Name="FK_DemandForcastAnalysis_GeoName">
+    <End Type="SigmaModel.GeoName" Role="GeoName" Multiplicity="0..1" />
+    <End Type="SigmaModel.DemandForcast" Role="DemandForcast" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GeoName">
+        <PropertyRef Name="GeoNameId" />
+      </Principal>
+      <Dependent Role="DemandForcast">
+        <PropertyRef Name="GeoNameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CountryBoundary">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Type="Int32" Name="CountryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FIPS" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ISO2" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="IsoAlpha3" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="IsoNumeric" />
+    <Property Type="String" Name="CountryName" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Double" Name="LON" />
+    <Property Type="Double" Name="LAT" />
+    <Property Type="Geometry" Name="Shape" />
+  </EntityType>
+</Schema>

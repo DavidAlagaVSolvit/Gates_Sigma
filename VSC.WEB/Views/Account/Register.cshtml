@@ -1,0 +1,41 @@
+﻿@model VSC.Web.Data.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="page padding10">
+    <div class="row">
+        <h2 class="padding10  text-justify  bg-color-vsolvit-orange  fg-color-white"><span></span>@ViewBag.Title  <i class="icon-info-2 place-right" style="font-size: x-large"></i></span></h2>
+        <div class="span12 place-left">
+            <h5>Create  a new local account to log in </h5>
+            <p class="padding10  text-justify">
+                 
+            </p>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                <div class="input-control text span6 as-block">
+                    @Html.TextBoxFor(m => m.UserName, htmlAttributes: new { @class = "span6", placeholder = "Enter your username" })
+                    <button class="helper"></button>
+                </div>
+                
+                <div class="input-control password span6 as-block">
+                    @Html.PasswordFor(m => m.Password, htmlAttributes: new { @class = "span6", placeholder = "Enter your password", type = "password" })
+                    <button class="helper"></button>
+                </div>
+                
+                <div class="input-control password span6 as-block">
+                    @Html.PasswordFor(m => m.ConfirmPassword, htmlAttributes: new { @class = "span6", placeholder = "Confirm your password", type = "password" })
+                    <button class="helper"></button>
+                </div>
+ 
+                <input type="submit" value="Register" class="standart"/>
+
+            }
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

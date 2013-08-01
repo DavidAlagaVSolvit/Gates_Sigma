@@ -1,0 +1,25 @@
+﻿<div id="uiWizardStep1" class="wizard-step padding10">
+    <h4>Step 1: Select a Country and Step2 Review Country Profile and Specify a Vaccine Schedule </h4>
+    <p class="text-justify">
+      Use the drop down button to select a country or type a country name into the dialog box. Check the box below to select a country directly on the map. 
+    </p>
+    <p class="no-display">
+        Review the table below to learn more about Niger’s country profile and vaccine schedule. 
+    </p>
+    <ol class="unstyled">
+        <li class="as-inline-block  padding5">
+            <button type="button" class="default ui-mapview-reset"><i class=""></i>Reset</button>
+        </li>
+        <li class="input-control select ui-country-name-list  as-inline-block  padding5" style="margin-right: 50px;">
+            <select class="ui-country-name " id="uiCountryName" disabled="disabled"></select>
+        </li>
+        <li class="ui-map-query-option as-inline-block button-set   padding5" data-role="button-set">
+                <button class="active "  value="0"> Turn Off</button>
+                <button  value="1">Select country</button>
+                <button value="2" class="ui-identify-button-option  no-display">Explore the Map</button> 
+        </li>
+    </ol>
+    <div class="ui-country-demographic-table-container"></div>
+    <div class="ui-country-vaccine-schedule-table-container"></div>
+</div>
+

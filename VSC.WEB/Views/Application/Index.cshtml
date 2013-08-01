@@ -1,0 +1,51 @@
+﻿ @*@model  VSC.Web.ViewModel.DemandForcast*@
+@{
+    ViewBag.Title = "Strategic Immunization Geotemporal Mapping Application (SIGMA)";
+}
+
+
+<!-- APP -->
+<script src="~/Scripts/app/lib/utils.js"></script>
+<script src="~/Scripts/app/App.js"></script>
+<script src="~/Scripts/app/Events.js"></script>
+<script src="~/Scripts/app/ViewModel.js"></script>
+@*<script src="~/Scripts/app/views/AnalysisView.js"></script>
+<script src="~/Scripts/app/views/BaseMapView.js"></script>*@
+<script src="~/Scripts/app/views/MapView.js"></script>
+@*<script src="~/Scripts/app/views/SearchView.js"></script>
+<script src="~/Scripts/app/views/TableView.js"></script>*@
+<script src="~/Scripts/app/views/ShareView.js"></script>
+@*<script src="~/Scripts/app/views/LegendView.js"></script>*@
+
+<script src="~/Scripts/app/Navigation.js"></script>
+<script src="~/Scripts/app/Analysis.js"></script>
+<script src="~/Scripts/app/Editor.js"></script>
+<script src="~/Scripts/app/LayerManager.js"></script>
+<script src="~/Scripts/app/Identify.js"></script>
+
+<div class="page padding10 ">
+    <div class="row">
+        <h2 class="padding10  text-justify   bg-color-vsolvit-orange  fg-color-white"><span>@ViewBag.Title  @*<i class="icon-camera place-right" style="font-size: x-large"></i>*@</span></h2>
+    </div>
+    <div class="wizard-nav place-right">
+        <button type="button" id="wizard-prev" value="<< Previous"><< Previous</button>
+        <button type="button" id="wizard-next" value="Next >>">Next >> </button>
+    </div>
+    <div class="row ui-info-messge row  padding10">
+    </div>
+ 
+    @Html.Partial("~/Views/Shared/Wizard/_Step1.cshtml")
+    @Html.Partial("~/Views/Shared/Wizard/_Step2.cshtml")
+    @Html.Partial("~/Views/Shared/Wizard/_Step3.cshtml")
+    @Html.Partial("~/Views/Shared/Wizard/_Step4.cshtml")
+    @Html.Partial("~/Views/Shared/Wizard/_Step5.cshtml")
+ 
+    @Html.Partial("~/Views/Shared/Wizard/_Step8.cshtml")
+     <p style="font-size:x-large; width:100%; text-align:center;"  class="ui-map-use-instruction no-display ">Click in your selected coutry for details.</p>
+    <div id="uiMapView" class="ui-mapview row border-color-orangeDark" style="min-height: 400px;">
+    </div>
+ 
+ 
+</div>
+
+

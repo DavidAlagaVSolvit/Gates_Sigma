@@ -1,0 +1,238 @@
+﻿footer {
+    z-index:0;
+}
+
+
+.ui-autocomplete {
+    z-index: 100; /* stay on top of all esri controls */
+}
+
+table.display tr.even.row_selected td {
+    background-color: #B0BED9 !important;
+}
+
+table.display tr.odd.row_selected td {
+    background-color: #9FAFD1 !important;
+}
+
+
+.map .logo-med {
+    background-image: url("../images/logo.png") !important;
+    background-repeat: no-repeat;
+    border-color: black;
+    border: solid thin;
+    bottom: 5px;
+    cursor: pointer;
+    height: 50px;
+    position: absolute;
+    right: 5px;
+    width: 140px;
+    z-index: 30;
+}
+
+.esriPopup .titlePane {
+    background-color:#AC0000;
+
+}
+
+.metrouicss .button-set button.active {
+    background-color: #AC0000;
+    /*color: #AC0000;*/
+}
+.ui-toolbar-basemap-option {
+    top: 310px;
+    cursor: pointer;
+    height: auto;
+    position: absolute;
+    right: 5px;
+    width: auto;
+    z-index: 30;
+}
+
+.fg-color-vsolvit-black {
+    color: #000000 !important;
+}
+
+.bg-color-vsolvit-orange {
+    background-color: #AC0000 !important;
+}
+
+.standart {
+    background-color: #AC0000 !important;
+}
+
+.page {
+    width: 1110px !important;
+}
+
+body {
+    background-color: #000000 !important;
+}
+
+#legendDiv {
+    min-width: 350px;
+}
+/** see http://jqueryui.com/autocomplete/#combobox */
+.ui-autocomplete {
+    max-height: 300px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}
+/* IE 6 doesn't support max-height
+           * we use height instead, but this forces the menu to always be this tall
+       */
+* html .ui-autocomplete {
+    height: 300px;
+}
+
+.ui-combobox {
+    position: relative;
+    display: inline-block;
+    max-height: 600px;
+ 
+    width: 400px;
+    font-size: 1em;
+}
+
+.ui-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+    /* support: IE7 */
+    *height: 1.7em;
+    *top: 0.1em;
+}
+
+.ui-combobox-input {
+    margin: 0;
+    padding: 0.3em;
+    width: 400px;
+ 
+    font-size: 1em;
+}
+
+.ui-autocomplete {
+    z-index: 100; /* stay on top of all esri controls */
+    list-style-type: none !important;
+    color: black !important;
+}
+
+.ui-menu-item a {
+    color: black !important;
+    text-decoration: none;
+}
+
+ 
+.ui-map-content-menu-action {
+    width:15em;
+}
+
+th .ui-combobox {
+    width:4em;
+}
+
+th .ui-combobox input {
+     width:4em;
+}
+
+/** dialog */
+.metrouicss .dialog .header {
+    background-color: #AC0000 !important;
+    z-index: 9999;
+}
+
+#dialogBox {
+    border: none;
+    border-color: #AC0000 !important;
+    height: 600px !important;
+    min-height:600px;
+    max-height: 600px !important;
+    overflow-y: scroll !important;
+}
+
+
+.metrouicss .dialog button {
+    background-color: #AC0000 !important;
+    color: white !important;
+}
+
+.default {
+      background-color: #AC0000 !important;
+    color: white !important;
+}
+
+/** WIZARD FORM */
+.wizard-step {
+    display: none; /* Must be hidden to begin with, this is later changed by the javascript */
+}
+
+.wizard-nav button {
+        background-color: #AC0000 !important;
+    color: white !important;
+}
+/*.wizard-step ol {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }*/
+
+ /*.wizard-step li {
+        margin: 5px 0px;
+    }*/
+
+ /*.wizard-step label {
+        float: left;
+        min-width: 100px;
+        margin-right: 10px;
+    }*/
+
+/*.wizard-confirmation {
+    display: none; /* Must be hidden to begin with, this is later changed by the javascript  
+}*/
+
+ /*.wizard-confirmation #validation-summary {
+        margin: 25px 0px 0px;
+        font-weight: bold;
+        color: #f00;
+    }*/
+
+/*.wizard-nav {
+    margin: 25px 0px 0px;
+}
+
+.wizard-nav input[type="button"] {
+        width: 100px;
+    }*/
+
+
+form {
+    color: black;
+}
+
+ui-mapview {
+    height:600px;
+    max-height: 600px;
+    min-height: 100px;
+}
+
+/*.rotate {
+
+/* Safari */
+-webkit-transform: rotate(-90deg);
+
+/* Firefox */
+-moz-transform: rotate(-90deg);
+
+/* IE */
+-ms-transform: rotate(-90deg);
+
+/* Opera */
+-o-transform: rotate(-90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+}*/

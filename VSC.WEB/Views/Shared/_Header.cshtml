@@ -1,0 +1,32 @@
+﻿<header class="page">
+    <div class="nav-bar padding10 bg-color-vsolvit-orange">
+        <div class="nav-bar-inner padding10">
+            <span class="pull-menu"></span>
+@*            
+            <a href=@Url.Action("Index", "Home")  >
+                <span class="element brand">
+                 
+                    <i class="icon-lab place-left" style="font-size: x-large"></i>
+                    SIGMA
+                </span>
+            </a>
+
+            <div class="divider"></div>*@
+
+            <ul class="menu">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                @if (Request.IsAuthenticated)
+                {
+                   
+                    <li>@Html.ActionLink("SIGMA", "Index", "Application")</li>
+                      <li>@Html.ActionLink("Help", "Help", "Home")</li>
+                }
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+
+    </div>
+
+</header>

@@ -1,0 +1,32 @@
+﻿<div  id="uiWizardStep4" c class="wizard-step  padding10">
+    <h4>Step 5: Determine Population Served and Currently Not Served by Fixed Immunization Locations </h4>
+    <p>Use the drop down buttons to change Catchment Area and Percentage Coverage and explore how they affect the report table. </p>
+    <ol class="unstyled">
+        <li class="input-control select ui-country-name-list  as-inline-block padding10 span3" style="margin-right: 100px;">
+            <label for="uiCountryAdmin1Name">Administrative Area</label>
+            <select name="uiCountryAdmin1Name" class="ui-admin1-name  padding10" id="uiCountryAdmin1Name"></select>
+        </li>
+    </ol>
+    <ol class="unstyled">
+        <li class="input-control select ui-country-name-list  as-inline-block  padding10 span3" style="margin-right: 200px;">
+            <label for="uiAdmin1NameCatchmentRadius">Immunization Location Catchment Area Radius </label>
+            <select id="uiAdmin1NameCatchmentRadius" name="uiAdmin1NameCatchmentRadius" class="ui-admin1-name-catchment-radius ">
+                <option value="1">1km</option>
+                <option value="5">5km</option>
+                <option value="10">10km</option>
+            </select>
+        </li>
+        <li class="input-control select ui-country-name-list  as-inline-block  padding10 span3" style="margin-left: 100px;">
+            <label for="uiAdmin1NameCatchmentCoverage">Expected Percent Coverage within Each Catchment Area</label>
+            <select id="uiAdmin1NameCatchmentCoverage" name="uiAdmin1NameCatchmentCoverage" class="ui-admin1-name-catchment-coverage as-inline-block  ">
+                <option value="1.0">100%</option>
+                <option value=".75">75%</option>
+                <option value=".50">50% </option>
+                <option value=".25">25% </option>
+            </select>
+        </li>
+    </ol>
+    <div class="ui-admin1-catchment-coverage-table-container" style="overflow: scroll;">
+    </div>
+
+</div>
